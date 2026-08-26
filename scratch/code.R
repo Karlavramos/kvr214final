@@ -5,6 +5,9 @@ bq1_data <- read_csv("data/QuebradaCuenca1-Bisley.csv")
 bq2_data <- read_csv("data/QuebradaCuenca2-Bisley.csv")
 bq3_data <- read_csv("data/QuebradaCuenca3-Bisley.csv")
 
+source("R/moving-average.R")
+
+
 # Initialize Start -------------------------------------------------------
 
 # Need to filter dates first
