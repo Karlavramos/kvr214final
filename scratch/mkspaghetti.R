@@ -1,6 +1,9 @@
 library(tidyverse)
 
-PRM_dataaa <- read_csv("data/RioMameyesPuenteRoto.csv")
+PRM_data <- read_csv("data/RioMameyesPuenteRoto.csv")
+bq1_data <- read_csv("data/QuebradaCuenca1-Bisley.csv.csv")
+bq2_data <- read_csv("data/QuebradaCuenca2-Bisley.csv.csv")
+bq3_data <- read_csv("data/QuebradaCuenca3-Bisley.csv.csv")
 
 Elements <- c("`NH4-N`", "Ca", "Mg", "NO3-N", "K")
 
