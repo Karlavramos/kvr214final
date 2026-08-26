@@ -20,4 +20,3 @@ PMR_K |>
     mapping = aes(x = Sample_Date, y = K)
   ) +
   geom_point()
-git
