@@ -1,0 +1,43 @@
+---
+title: "Hurricane Hugo Impact on Concentration in Puerto Rico's Streams"
+format: html
+---
+
+## Background 
+This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), that demonstrated the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.
+
+## Data
+```{r}
+
+library(tidyverse)
+
+PRM_data <- read_csv("../data/RioMameyesPuenteRoto.csv")
+bq1_data <- read_csv("../data/QuebradaCuenca1-Bisley.csv")
+bq2_data <- read_csv("../data/QuebradaCuenca2-Bisley.csv")
+bq3_data <- read_csv("../data/QuebradaCuenca3-Bisley.csv")
+```
+
+
+## Methods
+```{r}
+source("../R/moving-average.R")
+
+PRM_moving <- moving_average(PRM_data)
+
+PRM_moving |>
+  pivot_longer(
+    cols = c(k_mgl, mg_mgl, no3_ugl, ca_mgl, nh4_ugl),
+    values_to = "Concentration",
+    names_to = "Ion"
+  ) |>
+  ggplot(
+    mapping = aes(x = window_start, y = Concentration, color = Ion)
+  ) +
+  geom_line() +
+  facet_wrap(~Ion)
+```
+
+## Results
+```{r}
+
+```
