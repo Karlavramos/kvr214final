@@ -5,9 +5,9 @@ moving_average <- function(stream_data) {
   # Initialize a tibble to contain the results
   result <- tibble(
     window_start = seq(
-      ymd(stream_data$Sample_Date[1]),
-      ymd(stream_data$Sample_Date[nrow(stream_data)]),
-      by = "63 days"
+      ymd("1988-01-01"),
+      ymd("1994-12-31"),
+      by = "9 weeks"
     ),
     site = stream_data$Sample_ID[1],
     k_mgl = NA,
@@ -22,11 +22,11 @@ moving_average <- function(stream_data) {
   for (i in 1:nrow(result)) {
     # Create variables for the start and end of the current window
     w1 <- result$window_start[i]
-    w2 <- w1 + 63
+    w2 <- result$window_start[i] + weeks(9)
 
     # Create a logical vector, called "in_window", that says which samples are inside the window
     # Hint: you'll compare sample dates to the start and end of the window
-    in_window <- stream_data$Sample_Date >= w1 & stream_data$Sample_Date < w2
+    in_window <- w1 <= stream_data$Sample_Date & w2 > stream_data$Sample_Date
 
     # Use indexing to pull out the ion concentrations that fall inside the window
     k_window <- stream_data$K[in_window]
@@ -41,11 +41,11 @@ moving_average <- function(stream_data) {
     # The line above gets potassium in the window. Get the rest of the ions too
 
     # Calculate the mean of each ion concentration and fill in the result
-    result$k_mgl[i] <- mean(k_window)
-    result$mg_mgl[i] <- mean(mg_window)
-    result$no3_ugl[i] <- mean(no3_window)
-    result$ca_mgl[i] <- mean(ca_window)
-    result$nh4_ugl[i] <- mean(nh4_window)
+    result$k_mgl[i] <- mean(k_window, na.rm = TRUE)
+    result$mg_mgl[i] <- mean(mg_window, na.rm = TRUE)
+    result$no3_ugl[i] <- mean(no3_window, na.rm = TRUE)
+    result$ca_mgl[i] <- mean(ca_window, na.rm = TRUE)
+    result$nh4_ugl[i] <- mean(nh4_window, na.rm = TRUE)
   }
 
   # Return the result

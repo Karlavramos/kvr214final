@@ -14,7 +14,14 @@ all_sites_data |>
     names_to = "Ion"
   ) |>
   ggplot(
-    mapping = aes(x = window_start, y = Concentration, color = Ion)
+    mapping = aes(
+      x = window_start,
+      y = Concentration,
+      color = site,
+      linetype = site
+    )
   ) +
   geom_line() +
-  facet_wrap(~site, scales = "free", ncol = 1)
+  facet_wrap(~Ion, scales = "free", ncol = 1)
+
+tail(all_sites_data)
