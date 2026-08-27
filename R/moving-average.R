@@ -9,7 +9,7 @@ moving_average <- function(stream_data) {
       ymd(stream_data$Sample_Date[nrow(stream_data)]),
       by = "63 days"
     ),
-    stream_data$Sample_ID[1],
+    site = stream_data$Sample_ID[1],
     k_mgl = NA,
     mg_mgl = NA,
     no3_ugl = NA,
