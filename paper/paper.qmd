@@ -8,6 +8,7 @@ This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), th
 
 ## Data
 ```{r}
+#| output: false
 
 library(tidyverse)
 
@@ -20,6 +21,8 @@ bq3_data <- read_csv("../data/QuebradaCuenca3-Bisley.csv")
 
 ## Methods
 ```{r}
+#| output: false
+
 source("../R/moving-average.R")
 
 PRM_moving <- moving_average(PRM_data)
@@ -39,5 +42,6 @@ PRM_moving |>
 
 ## Results
 ```{r}
+#| output: false
 
 ```
