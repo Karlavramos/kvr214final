@@ -70,17 +70,16 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p><strong>clean_data:</strong> Data that has been developed to plot and recreate analysis.</p></li>
 <li><p><strong>data:</strong> Raw data entries from Chemistry of stream water from the Luquillo Mountains ver 4923064, Brisley Quebradas (1-3) and Rio Mameyes Puerto Roto.</p></li>
-<li><p><strong>docs:</strong></p></li>
-<li><p><strong>figs:</strong></p></li>
-<li><p><strong>output:</strong> csv created from 1_clean_data.R</p></li>
-<li><p><strong>paper:</strong></p></li>
-<li><p><strong>R:</strong> Functions created when cleaning the data</p></li>
-<li><p><strong>reports:</strong></p></li>
+<li><p><strong>docs:</strong> Rendered version of paper.</p></li>
+<li><p><strong>output:</strong> Csv created from clean data.</p></li>
+<li><p><strong>paper:</strong> Paper that breaksdown the project details and results.</p></li>
+<li><p><strong>R:</strong> Functions created to clean data for analysis.</p></li>
 </ol>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064. Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458 (Accessed 2026-08-25).</p>
+<p>1_Cleaned_data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average function applies 9 week moving average and calulates the mean average for every site.</p>
 </section>
 <section id="refrences" class="level2">
 <h2 class="anchored" data-anchor-id="refrences">Refrences</h2>

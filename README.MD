@@ -21,20 +21,20 @@ This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), th
 
 2. **data:** Raw data entries from Chemistry of stream water from the Luquillo Mountains ver 4923064, Brisley Quebradas (1-3) and Rio Mameyes Puerto Roto.
 
-3. **docs:** 
+3. **docs:** Rendered version of paper.
 
-4. **figs:**
+4. **output:** Csv created from clean data.
 
-5. **output:** csv created from 1_clean_data.R 
+5. **paper:** Paper that breaksdown the project details and results.
 
-6. **paper:** 
+6. **R:** Functions created to clean data for analysis.
 
-7. **R:** Functions created when cleaning the data
-
-8. **reports:**
 
 ## Data 
 McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064. Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458 (Accessed 2026-08-25).
+
+1_Cleaned_data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average function applies 
+9 week moving average and calulates the mean average for every site.
 
 
 ## Refrences

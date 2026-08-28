@@ -9,7 +9,7 @@
 <meta name="author" content="Karla Ramos">
 <meta name="dcterms.date" content="2026-08-28">
 
-<title>Hurricane Hugos’ impact on stream chemistry in Brisley, Puerto Rico</title>
+<title>Hurricane Hugo’s disturbance on Stream Chemistry in Brisley, Puerto Rico</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,6 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">3</span> Methods</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a></li>
+  <li><a href="#refrences" id="toc-refrences" class="nav-link" data-scroll-target="#refrences"><span class="header-section-number">5</span> Refrences</a></li>
   </ul>
 </nav>
 </div>
@@ -97,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hurricane Hugos’ impact on stream chemistry in Brisley, Puerto Rico</h1>
+<h1 class="title">Hurricane Hugo’s disturbance on Stream Chemistry in Brisley, Puerto Rico</h1>
 </div>
 
 
@@ -128,17 +129,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="background" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
-<p>This repository purpose is to reproduce figure 3 from Schaefer et al.&nbsp;(2000), that demonstrated the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.</p>
+<p>This repository purpose is to reproduce figure 3 from Schaefer et al.&nbsp;(2000), that demonstrate the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.</p>
 </section>
 <section id="data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
-<p>Raw data was downloaded from the Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458.</p>
-<p>McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.</p>
+<p>Raw data was downloaded from the Environmental Data Initiative. <a href="https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458." class="uri">https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458.</a></p>
+<p>McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.</p>
 </section>
 <section id="methods" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="methods"><span class="header-section-number">3</span> Methods</h2>
-<p>1_Cleaned_data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average function applies 9 week moving average and calulates the mean average for every site.</p>
-<p>Sites are combined into one data frame to develop a csv found in ouput/. With the ouput data you will pivot longer to collapse all ions into one column to facit by ion.</p>
+<p>A 9 week moving average was applied to the raw data and filtered to include the concentrations needed to create figure 3.</p>
+<p>Final data combined all ions into one column to assist with plotting.</p>
 </section>
 <section id="results" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
@@ -161,10 +162,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Ion, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hurricane effects on stream chemistry"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"Described for "</span>, <span class="fu">nrow</span>(mpg), <span class="st">" years from 1988 to 1994"</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"1989-09-01"</span>)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hurricane Effects on Stream Chemistry"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years"</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -174,6 +175,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>The results demonstrate the average streamwater concentration before and after the disturbance of Huricane Hugo.</p>
+</section>
+<section id="refrences" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="refrences"><span class="header-section-number">5</span> Refrences</h2>
+<p>McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064. Environmental Data Initiative. <a href="https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458" class="uri">https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458</a> (Accessed 2026-08-25).</p>
+<p>Schaefer, Douglas. A., William H. McDowell, Fredrick N. Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” <em>Journal of Tropical Ecology</em> 16 (2): 189–207. <a href="https://doi.org/10.1017/s0266467400001358." class="uri">https://doi.org/10.1017/s0266467400001358.</a></p>
 </section>
 
 </main>

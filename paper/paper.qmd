@@ -1,5 +1,5 @@
 ---
-title: "Hurricane Hugos' impact on stream chemistry in Brisley, Puerto Rico"
+title: "Hurricane Hugo's disturbance on Stream Chemistry in Brisley, Puerto Rico"
 format: html
 author: Karla Ramos
 date: 'August 28, 2026'
@@ -7,20 +7,21 @@ toc: true
 number-sections: true
 ---
 
-## Background 
-This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), that demonstrated the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.
+## Background
+
+This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), that demonstrate the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.
 
 ## Data
-Raw data was downloaded from the Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458. 
-  
-  McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.
+
+Raw data was downloaded from the Environmental Data Initiative. <https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458.>
+
+McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.
 
 ## Methods
-1_Cleaned_data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average function applies 
-9 week moving average and calulates the mean average for every site.
 
-Sites are combined into one data frame to develop a csv found in ouput/. With the ouput data you will pivot longer to collapse all ions into one column to facit by ion. 
+A 9 week moving average was applied to the raw data and filtered to include the concentrations needed to create figure 3.
 
+Final data combined all ions into one column to assist with plotting.
 
 ## Results
 
@@ -45,8 +46,17 @@ ggplot(
 ) +
   geom_line() +
   facet_wrap(~Ion, scales = "free", ncol = 1) +
+  geom_vline(xintercept = as.Date("1989-09-01")) +
   labs(
-    title = "Hurricane effects on stream chemistry",
-    x = "Years",
+    title = "Hurricane Effects on Stream Chemistry",
+    x = "Years"
   )
 ```
+
+The results demonstrate the average streamwater concentration before and after the disturbance of Huricane Hugo (vertical line on ggplot). 
+
+## Refrences
+
+McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064. Environmental Data Initiative. <https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458> (Accessed 2026-08-25).
+
+Schaefer, Douglas. A., William H. McDowell, Fredrick N. Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” *Journal of Tropical Ecology* 16 (2): 189–207. <https://doi.org/10.1017/s0266467400001358.>
