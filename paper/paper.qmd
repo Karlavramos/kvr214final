@@ -7,37 +7,25 @@ format: html
 This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), that demonstrated the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.
 
 ## Data
+Raw data was downloaded from the Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458. 
+  
+  McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.
+
+
 ```{r}
 #| warning: false
 
 library(tidyverse)
-
-PRM_data <- read_csv("../data/RioMameyesPuenteRoto.csv")
-bq1_data <- read_csv("../data/QuebradaCuenca1-Bisley.csv")
-bq2_data <- read_csv("../data/QuebradaCuenca2-Bisley.csv")
-bq3_data <- read_csv("../data/QuebradaCuenca3-Bisley.csv")
 ```
 
 
 ## Methods
+Cleaned data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average 
+
+Used a 9 week moving average 
 ```{r}
 #| warning: false
 
-source("../R/moving-average.R")
-
-PRM_moving <- moving_average(PRM_data)
-
-PRM_moving |>
-  pivot_longer(
-    cols = c(k_mgl, mg_mgl, no3_ugl, ca_mgl, nh4_ugl),
-    values_to = "Concentration",
-    names_to = "Ion"
-  ) |>
-  ggplot(
-    mapping = aes(x = window_start, y = Concentration, color = Ion)
-  ) +
-  geom_line() +
-  facet_wrap(~Ion)
 ```
 
 ## Results

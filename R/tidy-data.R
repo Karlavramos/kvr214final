@@ -1,5 +1,7 @@
+# load package
 library(tidyverse)
 
+# function created to filter dates and select ions needed for analysis
 tidy_data <- function(site_data) {
   tidy_data <- site_data |>
     filter(
