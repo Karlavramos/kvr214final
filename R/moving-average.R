@@ -1,4 +1,4 @@
-# load package
+# Load package
 library(tidyverse)
 
 # The input to this function should be a data frame containing stream chemistry data
@@ -18,7 +18,6 @@ moving_average <- function(stream_data) {
     nh4_ugl = NA
   )
 
-  #
   for (i in 1:nrow(result)) {
     # Create variables for the start and end of the current window
     w1 <- result$window_start[i]

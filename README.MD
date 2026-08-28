@@ -1,27 +1,37 @@
 # **Hurricane Hugo Impact on Concentration in Puerto Rico's Streams**
 
-From Ramos, K.V
+#### Author: 
+
+Karla Ramos [[Github Profile](https://github.com/Karlavramos)]
+
+##### Contributors:
+
+Eden Gonzalez
+
+Karolina Sienko
+
+
 
 ## Genneral Summary
 This repository purpose is to reproduce figure 3 from Schaefer et al. (2000), that demonstrated the changes in stream chemistry overtime including hurricane disturbance by Huricane Hugo. The analysis focus on concentration changes in (a) potassium, (b) nitrate-N, (c) magnesium, (d) calcium and (e) ammonium-N in Bisley bason and Rio Mameyes Punete Roto.
 
 ## Repository Content
 
-1. _clean_data.R
+1. **clean_data:** Data that has been developed to plot and recreate analysis.
 
-2. data
+2. **data:** Raw data entries from Chemistry of stream water from the Luquillo Mountains ver 4923064, Brisley Quebradas (1-3) and Rio Mameyes Puerto Roto.
 
-3. docs
+3. **docs:** 
 
-4. figs
+4. **figs:**
 
-5. output
+5. **output:** csv created from 1_clean_data.R 
 
-6. paper 
+6. **paper:** 
 
-7. R
+7. **R:** Functions created when cleaning the data
 
-8. reports 
+8. **reports:**
 
 ## Data 
 McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064. Environmental Data Initiative. https://doi.org/10.6073/pasta/f31349bebdc304f758718f4798d25458 (Accessed 2026-08-25).

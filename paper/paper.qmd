@@ -1,6 +1,10 @@
 ---
-title: "Hurricane Hugo Impact on Concentration in Puerto Rico's Streams"
+title: "Hurricane Hugos' impact on stream chemistry in Brisley, Puerto Rico"
 format: html
+author: Karla Ramos
+date: 'August 28, 2026'
+toc: true
+number-sections: true
 ---
 
 ## Background 
@@ -11,25 +15,38 @@ Raw data was downloaded from the Environmental Data Initiative. https://doi.org/
   
   McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest Service.. 2024. Chemistry of stream water from the Luquillo Mountains ver 4923064.
 
-
-```{r}
-#| warning: false
-
-library(tidyverse)
-```
-
-
 ## Methods
-Cleaned data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average 
+1_Cleaned_data was developed by applying moving-average() and tidy-data() functions. The tidy_data function filters all the data from 1988-1994 and selects the ions needed for analysis. The moving-average function applies 
+9 week moving average and calulates the mean average for every site.
 
-Used a 9 week moving average 
-```{r}
-#| warning: false
+Sites are combined into one data frame to develop a csv found in ouput/. With the ouput data you will pivot longer to collapse all ions into one column to facit by ion. 
 
-```
 
 ## Results
+
 ```{r}
 #| warning: false
 
+# load package
+library(tidyverse)
+
+# Read csv created with components needed for analysis
+final_data <- read_csv("../output/figure3_data.csv")
+
+# Plot years on the x-axis and ion concentration on the y-axis
+ggplot(
+  data = final_data,
+  mapping = aes(
+    x = window_start,
+    y = Concentration,
+    color = site,
+    linetype = site
+  )
+) +
+  geom_line() +
+  facet_wrap(~Ion, scales = "free", ncol = 1) +
+  labs(
+    title = "Hurricane effects on stream chemistry",
+    x = "Years",
+  )
 ```
