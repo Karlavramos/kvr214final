@@ -1,5 +1,5 @@
 ---
-title: "Hurricane Hugo's disturbance on Stream Chemistry in Brisley, Puerto Rico"
+title: "Hurricane Hugo's Impact on Stream Chemistry in Brisley, Puerto Rico"
 format: html
 author: Karla Ramos
 date: 'August 28, 2026'
@@ -19,9 +19,7 @@ McDowell, W. and International Institute of Tropical Forestry(IITF), USDA Forest
 
 ## Methods
 
-A 9 week moving average was applied to the raw data and filtered to include the concentrations needed to create figure 3.
-
-Final data combined all ions into one column to assist with plotting.
+The Raw data was filtered to include the wanted ions and time frame. A 9 week moving average was applied to each site. Final data combined all ions into one column to assist with plotting figure 3. 
 
 ## Results
 
@@ -53,7 +51,7 @@ ggplot(
   )
 ```
 
-The results demonstrate the average streamwater concentration before and after the disturbance of Huricane Hugo (vertical line on ggplot). 
+The results demonstrate the average streamwater concentration before and after the disturbance of Huricane Hugo (demonstrated by vertical line). 
 
 ## Refrences
 
